@@ -23,10 +23,10 @@
   color: black;
 }
 
-.App button.Red {
+.App button.Green {
   background-color: green;
 }
 
-.App button.Red:hover {
+.App button.Green:hover {
   background-color: limegreen;
 }

@@ -65,7 +65,7 @@ class App extends Component {
         </div>
       );
 
-      btnClass = classes.Red;
+      btnClass = classes.Green;
     }
 
     const assignedClasses = [];
