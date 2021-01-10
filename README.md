@@ -1,5 +1,5 @@
 ## Broccoli-Component
 
 ```
-### Adv React components?
+Adv React components?
 ```
