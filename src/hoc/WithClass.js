@@ -1,10 +1,10 @@
 import React from 'react';
 
-// function returning functional component
+// passing unknown props
 const withClass = (WrappedComponent, className) => {
   return props => (
     <div className={className}>
-      <WrappedComponent />
+      <WrappedComponent {...props} />
     </div>
   );
 };
