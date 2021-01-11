@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import classes from './Cockpit.css'
 import AuthContext from '../../context/auth-context';
 
@@ -6,6 +6,9 @@ const cockpit = props => {
   // useRef hook
   const toggleBtnRef = useRef(null);
   // toggleBtnRef.current.click();   // doesn't work here coz JSX hasn't been run yet! use it in useEffect
+
+  const authContext = useContext(AuthContext);
+  console.log(authContext.authenticated);
 
   useEffect(() => {
     console.log('[Cockpit.js] useEffect');
@@ -46,9 +49,7 @@ const cockpit = props => {
       <button ref={toggleBtnRef} className={btnClass} onClick={props.clicked}>
         Toggle Ninjas
       </button>
-      <AuthContext.Consumer>
-        {(context) => <button onClick={context.login}>Log In</button>}
-      </AuthContext.Consumer>
+      <button onClick={authContext.login}>Log In</button>
     </div>
   );
 }
