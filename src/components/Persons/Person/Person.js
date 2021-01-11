@@ -5,6 +5,18 @@ import classes from './Person.css';
 import PropTypes from 'prop-types';
 
 class Person extends Component {
+  
+  // new method for ref
+  constructor(props) {
+    super(props);
+    this.inputElementRef = React.createRef();
+  }
+
+  componentDidMount() {
+    // this.inputElement.focus();   // old method for ref
+    this.inputElementRef.current.focus();   // new method for ref
+  }
+
   render() {
     console.log('[Person.js] rendering..');
 
@@ -14,7 +26,13 @@ class Person extends Component {
           I'm {this.props.name} and I am {this.props.age} years old!
         </p>
         <p>{this.props.children}</p>
-        <input type="text" onChange={this.props.changed} value={this.props.name} />
+        <input 
+          type="text" 
+          onChange={this.props.changed} 
+          value={this.props.name}
+          // ref={(inputEl) => {this.inputElement = inputEl;}}   // old method
+          ref={this.inputElementRef}   // new method
+        />
       </Aux>
     );
   }
